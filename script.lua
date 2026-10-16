@@ -1,6 +1,6 @@
 --==================================================
 -- ANTONMVTWIN • 28KXPEHH & KYWSAM
--- GUN CUSTOMIZER — 35 ESTILOS 🖤💙
+-- GUN CUSTOMIZER — 37 ESTILOS 🖤💙
 --==================================================
 
 local Players = game:GetService("Players")
@@ -43,7 +43,7 @@ local SHOT_NAMES = {
 }
 
 --==================================================
--- CORES (35 ESTILOS)
+-- CORES (37 ESTILOS)
 --==================================================
 
 local EFFECT_COLORS = {
@@ -82,12 +82,14 @@ local EFFECT_COLORS = {
     SweetPetalAppleBlossomScope  = Color3.fromRGB(255, 180, 210),
     ChocoFlakeCreamScope         = Color3.fromRGB(180, 130, 90),
     RedVelvetScope               = Color3.fromRGB(200, 30, 60),
+    SwagMusicScope               = Color3.fromRGB(150, 80, 220),
+    FallScope                    = Color3.fromRGB(230, 130, 60),
 }
 
 local GUN_BODY_COLORS = EFFECT_COLORS
 
 --==================================================
--- BEAMS ESPECIAIS (bicolor / multi-cor)
+-- BEAMS ESPECIAIS (multi-cor)
 --==================================================
 
 local SPECIAL_BEAMS = {
@@ -102,9 +104,10 @@ local SPECIAL_BEAMS = {
         ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 130, 0)),
     }),
     ChocoCatScope = ColorSequence.new({
-        ColorSequenceKeypoint.new(0, Color3.fromRGB(92, 51, 23)),
-        ColorSequenceKeypoint.new(0.5, Color3.fromRGB(180, 220, 255)),
-        ColorSequenceKeypoint.new(1, Color3.fromRGB(92, 51, 23)),
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(180, 220, 255)),      -- 💙 azul claro
+        ColorSequenceKeypoint.new(0.35, Color3.fromRGB(92, 51, 23)),      -- 🍫 chocolate
+        ColorSequenceKeypoint.new(0.65, Color3.fromRGB(255, 255, 255)),   -- ⚪ branco
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(180, 220, 255)),      -- 💙 azul claro
     }),
     RainbowScope = ColorSequence.new({
         ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 0, 0)),
@@ -115,17 +118,23 @@ local SPECIAL_BEAMS = {
         ColorSequenceKeypoint.new(0.80, Color3.fromRGB(75, 0, 255)),
         ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 0, 255)),
     }),
+    SwagMusicScope = ColorSequence.new({
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 105, 180)),      -- 🌸 rosa
+        ColorSequenceKeypoint.new(0.33, Color3.fromRGB(140, 230, 140)),   -- 💚 verde
+        ColorSequenceKeypoint.new(0.66, Color3.fromRGB(255, 240, 130)),   -- 💛 amarelo claro
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 105, 180)),      -- 🌸 rosa
+    }),
 }
 
 --==================================================
--- TEXTURAS (35 ESTILOS) — IDs ATUALIZADOS
+-- TEXTURAS (37 ESTILOS) — IDs ATUALIZADOS
 --==================================================
 
 local TEXTURES = {
     RedScope                     = "rbxassetid://84961185975751",
     BlueScope                    = "rbxassetid://82435090032680",
     Purple                       = "rbxassetid://88934686234709",
-    RainbowScope                 = "rbxassetid://111439232051230",      -- ✅ NOVO
+    RainbowScope                 = "rbxassetid://111439232051230",
     Rosescope                    = "rbxassetid://102809990017058",
     WhiteScope                   = "rbxassetid://87412774611144",
     LadyNoir                     = "rbxassetid://113455213965513",
@@ -136,10 +145,10 @@ local TEXTURES = {
     CinnamorollScope             = "rbxassetid://101299747701905",
     HallowHelloKittyScope        = "rbxassetid://87175911202111",
     FluttershyScope              = "rbxassetid://138078031195826",
-    PinkPieScope                 = "rbxassetid://110279193348519",
+    PinkPieScope                 = "rbxassetid://81233140778268",      -- ✅ NOVO
     ShinobuScope                 = "rbxassetid://129716772920139",
     KuromiScope                  = "rbxassetid://93572939459652",
-    ChocoCatScope                = "rbxassetid://112443902875382",      -- ✅ NOVO
+    ChocoCatScope                = "rbxassetid://85605877472599",      -- ✅ NOVO
     CatNoirCyanScope             = "rbxassetid://131180982037558",
     TwilightBiScope              = "rbxassetid://108862731291876",
     CreatorScope                 = "rbxassetid://112081510735998",
@@ -152,10 +161,12 @@ local TEXTURES = {
     FiliaScope                   = "rbxassetid://70932940623767",
     NapolitanScope               = "rbxassetid://79744127665364",
     AppleJackScope               = "rbxassetid://76362909492405",
-    SummerAquaScope              = "rbxassetid://99078829240858",       -- ✅ NOVO
-    SweetPetalAppleBlossomScope  = "rbxassetid://121702965361666",      -- ✅ NOVO
-    ChocoFlakeCreamScope         = "rbxassetid://85987967443318",       -- ✅ NOVO
-    RedVelvetScope               = "rbxassetid://91979423609344",       -- ✅ NOVO
+    SummerAquaScope              = "rbxassetid://99078829240858",
+    SweetPetalAppleBlossomScope  = "rbxassetid://121702965361666",
+    ChocoFlakeCreamScope         = "rbxassetid://85987967443318",
+    RedVelvetScope               = "rbxassetid://91979423609344",
+    SwagMusicScope               = "rbxassetid://97014644110065",      -- ✅ NOVO
+    FallScope                    = "rbxassetid://118826135119487",      -- ✅ NOVO
 }
 
 --==================================================
@@ -254,6 +265,8 @@ local Styles = {
     "SweetPetalAppleBlossomScope",
     "ChocoFlakeCreamScope",
     "RedVelvetScope",
+    "SwagMusicScope",
+    "FallScope",
 }
 
 local CURRENT_STYLE = "Normal"
@@ -537,7 +550,6 @@ if oldGui then oldGui:Destroy() end
 local gui = Instance.new("ScreenGui")
 gui.Name = "MatrixVoidPanel"; gui.ResetOnSpawn = false; gui.IgnoreGuiInset = false; gui.Parent = PlayerGui
 
--- Bolinha (imagem Choco Cat)
 local ball = Instance.new("ImageButton")
 ball.Name = "ChocoBall"
 ball.Size = UDim2.fromOffset(70, 70)
@@ -556,7 +568,6 @@ local ballStroke = Instance.new("UIStroke", ball)
 ballStroke.Color = BLUE_LIGHT
 ballStroke.Thickness = 3
 
--- Main panel
 local main = Instance.new("Frame")
 main.Name = "MainFrame"
 main.Size = UDim2.fromOffset(280, 430)
@@ -580,7 +591,6 @@ mainGrad.Color = ColorSequence.new({
 })
 mainGrad.Rotation = 90
 
--- Title bar
 local titleBar = Instance.new("Frame")
 titleBar.Size = UDim2.new(1, 0, 0, 42)
 titleBar.BackgroundColor3 = BK_BLACK_DARK
@@ -629,7 +639,6 @@ minimize.ZIndex = 3
 minimize.Parent = titleBar
 Instance.new("UICorner", minimize).CornerRadius = UDim.new(1, 0)
 
--- Content
 local content = Instance.new("Frame")
 content.Position = UDim2.fromOffset(12, 48)
 content.Size = UDim2.new(1, -24, 1, -58)
@@ -668,7 +677,7 @@ local rainbowButton = makeButton("QUICK STYLE: RAINBOWSCOPE", content)
 local label = Instance.new("TextLabel")
 label.Size = UDim2.new(1, 0, 0, 18)
 label.BackgroundTransparency = 1
-label.Text = "TEXTURES (35 estilos + gradiente)"
+label.Text = "TEXTURES (37 estilos)"
 label.TextColor3 = BLUE_LIGHT
 label.TextSize = 11
 label.Font = Enum.Font.FredokaOne
@@ -711,10 +720,6 @@ status.Font = Enum.Font.FredokaOne
 status.TextWrapped = true
 status.ZIndex = 3
 status.Parent = content
-
---==================================================
--- APPLY
---==================================================
 
 local function applyCurrentStyle()
     if not customizerEnabled then status.Text = "Customizer desligado"; return end
@@ -798,10 +803,6 @@ rainbowButton.Activated:Connect(function()
     if CURRENT_STYLE == "RainbowScope" then selectStyle("Normal") else selectStyle("RainbowScope") end
 end)
 
---==================================================
--- ABRIR / FECHAR
---==================================================
-
 local function openPanel() ball.Visible = false; main.Visible = true end
 local function closePanel() main.Visible = false; ball.Visible = true end
 
@@ -832,4 +833,4 @@ end
 makeDraggable(titleBar, main)
 makeDraggable(ball, ball)
 
-print("[Customizer] Carregado ✔ — 35 estilos 🖤💙")
+print("[Customizer] Carregado ✔ — 37 estilos 🖤💙")
