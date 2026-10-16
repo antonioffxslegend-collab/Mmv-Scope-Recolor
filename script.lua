@@ -1,6 +1,6 @@
 --==================================================
 -- ANTONMVTWIN • 28KXPEHH & KYWSAM
--- GUN CUSTOMIZER — 37 ESTILOS 🖤💙
+-- GUN CUSTOMIZER — 37 ESTILOS + PERSISTÊNCIA 🖤💙
 --==================================================
 
 local Players = game:GetService("Players")
@@ -89,7 +89,7 @@ local EFFECT_COLORS = {
 local GUN_BODY_COLORS = EFFECT_COLORS
 
 --==================================================
--- BEAMS ESPECIAIS (multi-cor)
+-- BEAMS ESPECIAIS
 --==================================================
 
 local SPECIAL_BEAMS = {
@@ -104,10 +104,10 @@ local SPECIAL_BEAMS = {
         ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 130, 0)),
     }),
     ChocoCatScope = ColorSequence.new({
-        ColorSequenceKeypoint.new(0, Color3.fromRGB(180, 220, 255)),      -- 💙 azul claro
-        ColorSequenceKeypoint.new(0.35, Color3.fromRGB(92, 51, 23)),      -- 🍫 chocolate
-        ColorSequenceKeypoint.new(0.65, Color3.fromRGB(255, 255, 255)),   -- ⚪ branco
-        ColorSequenceKeypoint.new(1, Color3.fromRGB(180, 220, 255)),      -- 💙 azul claro
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(180, 220, 255)),
+        ColorSequenceKeypoint.new(0.35, Color3.fromRGB(92, 51, 23)),
+        ColorSequenceKeypoint.new(0.65, Color3.fromRGB(255, 255, 255)),
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(180, 220, 255)),
     }),
     RainbowScope = ColorSequence.new({
         ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 0, 0)),
@@ -119,15 +119,15 @@ local SPECIAL_BEAMS = {
         ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 0, 255)),
     }),
     SwagMusicScope = ColorSequence.new({
-        ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 105, 180)),      -- 🌸 rosa
-        ColorSequenceKeypoint.new(0.33, Color3.fromRGB(140, 230, 140)),   -- 💚 verde
-        ColorSequenceKeypoint.new(0.66, Color3.fromRGB(255, 240, 130)),   -- 💛 amarelo claro
-        ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 105, 180)),      -- 🌸 rosa
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 105, 180)),
+        ColorSequenceKeypoint.new(0.33, Color3.fromRGB(140, 230, 140)),
+        ColorSequenceKeypoint.new(0.66, Color3.fromRGB(255, 240, 130)),
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 105, 180)),
     }),
 }
 
 --==================================================
--- TEXTURAS (37 ESTILOS) — IDs ATUALIZADOS
+-- TEXTURAS (37 ESTILOS)
 --==================================================
 
 local TEXTURES = {
@@ -138,17 +138,16 @@ local TEXTURES = {
     Rosescope                    = "rbxassetid://102809990017058",
     WhiteScope                   = "rbxassetid://87412774611144",
     LadyNoir                     = "rbxassetid://113455213965513",
-
     RainbowDashScope             = "rbxassetid://91036451391743",
     PomPomPurinScope             = "rbxassetid://84422578206287",
     MyMelodyScope                = "rbxassetid://118329311723372",
     CinnamorollScope             = "rbxassetid://101299747701905",
     HallowHelloKittyScope        = "rbxassetid://87175911202111",
     FluttershyScope              = "rbxassetid://138078031195826",
-    PinkPieScope                 = "rbxassetid://81233140778268",      -- ✅ NOVO
+    PinkPieScope                 = "rbxassetid://81233140778268",
     ShinobuScope                 = "rbxassetid://129716772920139",
     KuromiScope                  = "rbxassetid://93572939459652",
-    ChocoCatScope                = "rbxassetid://85605877472599",      -- ✅ NOVO
+    ChocoCatScope                = "rbxassetid://85605877472599",
     CatNoirCyanScope             = "rbxassetid://131180982037558",
     TwilightBiScope              = "rbxassetid://108862731291876",
     CreatorScope                 = "rbxassetid://112081510735998",
@@ -165,8 +164,8 @@ local TEXTURES = {
     SweetPetalAppleBlossomScope  = "rbxassetid://121702965361666",
     ChocoFlakeCreamScope         = "rbxassetid://85987967443318",
     RedVelvetScope               = "rbxassetid://91979423609344",
-    SwagMusicScope               = "rbxassetid://97014644110065",      -- ✅ NOVO
-    FallScope                    = "rbxassetid://118826135119487",      -- ✅ NOVO
+    SwagMusicScope               = "rbxassetid://97014644110065",
+    FallScope                    = "rbxassetid://118826135119487",
 }
 
 --==================================================
@@ -230,43 +229,16 @@ end
 --==================================================
 
 local Styles = {
-    "Normal",
-    "Purple",
-    "RedScope",
-    "BlueScope",
-    "RainbowScope",
-    "Rosescope",
-    "WhiteScope",
-    "GhostScope",
-    "LadyNoir",
-    "RainbowDashScope",
-    "PomPomPurinScope",
-    "MyMelodyScope",
-    "CinnamorollScope",
-    "HallowHelloKittyScope",
-    "FluttershyScope",
-    "PinkPieScope",
-    "ShinobuScope",
-    "KuromiScope",
-    "ChocoCatScope",
-    "CatNoirCyanScope",
-    "TwilightBiScope",
-    "CreatorScope",
-    "ChocoScope",
-    "EasterScope",
-    "GreenAppleBowScope",
-    "AppleStrawberryKittyScope",
-    "BlueCookieCremeScope",
-    "PinkMintScope",
-    "FiliaScope",
-    "NapolitanScope",
-    "AppleJackScope",
-    "SummerAquaScope",
-    "SweetPetalAppleBlossomScope",
-    "ChocoFlakeCreamScope",
-    "RedVelvetScope",
-    "SwagMusicScope",
-    "FallScope",
+    "Normal", "Purple", "RedScope", "BlueScope", "RainbowScope",
+    "Rosescope", "WhiteScope", "GhostScope", "LadyNoir",
+    "RainbowDashScope", "PomPomPurinScope", "MyMelodyScope",
+    "CinnamorollScope", "HallowHelloKittyScope", "FluttershyScope",
+    "PinkPieScope", "ShinobuScope", "KuromiScope", "ChocoCatScope",
+    "CatNoirCyanScope", "TwilightBiScope", "CreatorScope", "ChocoScope",
+    "EasterScope", "GreenAppleBowScope", "AppleStrawberryKittyScope",
+    "BlueCookieCremeScope", "PinkMintScope", "FiliaScope", "NapolitanScope",
+    "AppleJackScope", "SummerAquaScope", "SweetPetalAppleBlossomScope",
+    "ChocoFlakeCreamScope", "RedVelvetScope", "SwagMusicScope", "FallScope",
 }
 
 local CURRENT_STYLE = "Normal"
@@ -431,6 +403,10 @@ local function forceApplyTool(tool)
     end)
 end
 
+--==================================================
+-- SETUP TOOL
+--==================================================
+
 local function setupTool(tool)
     if not tool:IsA("Tool") then return end
     if not string.find(tool.Name, GUN_TOOL_NAME) then return end
@@ -473,11 +449,35 @@ local function setupBackpack()
     end)
 end
 
+--==================================================
+-- 🔥 PERSISTÊNCIA AUTOMÁTICA (não perde cor ao morrer)
+--==================================================
+
 if player.Character then setupCharacter(player.Character) end
+
 player.CharacterAdded:Connect(function(character)
     hookedTools = {}
     setupCharacter(character)
+
+    -- 🔥 Reaplica o estilo atual automaticamente após respawn
+    task.wait(0.5)
+    if customizerEnabled and CURRENT_STYLE ~= "Normal" then
+        applyCurrentStyleRef()
+    end
 end)
+
+-- 🔥 Re-setup automático quando o backpack for recriado
+player.ChildAdded:Connect(function(child)
+    if child.Name == "Backpack" then
+        task.wait(0.3)
+        setupBackpack()
+        task.wait(0.2)
+        if customizerEnabled and CURRENT_STYLE ~= "Normal" then
+            applyCurrentStyleRef()
+        end
+    end
+end)
+
 setupBackpack()
 
 local function getNearestDisplay()
@@ -539,6 +539,53 @@ workspace.DescendantAdded:Connect(function(object)
         end
     end)
 end)
+
+--==================================================
+-- APPLY FUNCTIONS (com referência pra persistência)
+--==================================================
+
+function applyCurrentStyleRef()
+    restoreAll()
+
+    local function runApply()
+        local char = player.Character
+        if char then
+            for _, obj in ipairs(char:GetDescendants()) do
+                if obj:IsA("Tool") and string.find(obj.Name, GUN_TOOL_NAME) then
+                    applyToTool(obj)
+                end
+            end
+        end
+        local backpack = player:FindFirstChild("Backpack")
+        if backpack then
+            for _, obj in ipairs(backpack:GetChildren()) do
+                if obj:IsA("Tool") and string.find(obj.Name, GUN_TOOL_NAME) then
+                    applyToTool(obj)
+                end
+            end
+        end
+        local display = getNearestDisplay()
+        if display then applyToContainer(display) end
+    end
+
+    runApply()
+    task.wait(0.1); runApply()
+    task.wait(0.3); runApply()
+    task.wait(0.8); runApply()
+end
+
+local function applyCurrentStyle()
+    if not customizerEnabled then 
+        if status then status.Text = "Customizer desligado" end
+        return 
+    end
+
+    applyCurrentStyleRef()
+
+    if status then
+        status.Text = CURRENT_STYLE .. " aplicado"
+    end
+end
 
 --==================================================
 -- 🖤💙 UI PRETO & AZUL CLARO 💙🖤
@@ -721,43 +768,6 @@ status.TextWrapped = true
 status.ZIndex = 3
 status.Parent = content
 
-local function applyCurrentStyle()
-    if not customizerEnabled then status.Text = "Customizer desligado"; return end
-    restoreAll()
-
-    local function runApply()
-        local count = 0
-        local char = player.Character
-        if char then
-            for _, obj in ipairs(char:GetDescendants()) do
-                if obj:IsA("Tool") and string.find(obj.Name, GUN_TOOL_NAME) then
-                    count += applyToTool(obj)
-                end
-            end
-        end
-        local backpack = player:FindFirstChild("Backpack")
-        if backpack then
-            for _, obj in ipairs(backpack:GetChildren()) do
-                if obj:IsA("Tool") and string.find(obj.Name, GUN_TOOL_NAME) then
-                    count += applyToTool(obj)
-                end
-            end
-        end
-        local display = getNearestDisplay()
-        if display then count += applyToContainer(display) end
-
-        if count == 0 then status.Text = "Equipe Gun ou aproxime-se do GunDisplay"
-        else status.Text = CURRENT_STYLE .. " • " .. count .. " objetos" end
-    end
-
-    task.spawn(function()
-        runApply()
-        task.wait(0.1); runApply()
-        task.wait(0.3); runApply()
-        task.wait(0.8); runApply()
-    end)
-end
-
 local function selectStyle(styleName)
     local valid = false
     for _, name in ipairs(Styles) do if name == styleName then valid = true break end end
@@ -833,4 +843,31 @@ end
 makeDraggable(titleBar, main)
 makeDraggable(ball, ball)
 
-print("[Customizer] Carregado ✔ — 37 estilos 🖤💙")
+--==================================================
+-- 🔥 LOOP DE SEGURANÇA (mantém cor sempre)
+--==================================================
+
+task.spawn(function()
+    while task.wait(2) do
+        if customizerEnabled and CURRENT_STYLE ~= "Normal" then
+            local char = player.Character
+            if char then
+                for _, obj in ipairs(char:GetDescendants()) do
+                    if obj:IsA("Tool") and string.find(obj.Name, GUN_TOOL_NAME) then
+                        applyToTool(obj)
+                    end
+                end
+            end
+            local backpack = player:FindFirstChild("Backpack")
+            if backpack then
+                for _, obj in ipairs(backpack:GetChildren()) do
+                    if obj:IsA("Tool") and string.find(obj.Name, GUN_TOOL_NAME) then
+                        applyToTool(obj)
+                    end
+                end
+            end
+        end
+    end
+end)
+
+print("[Customizer] Carregado ✔ — 37 estilos + persistência 🖤💙")
