@@ -1,19 +1,44 @@
 --==================================================
 -- ANTONMVTWIN • 28KXPEHH & KYWSAM
--- GUN CUSTOMIZER — 44 ESTILOS + PRELOAD + FORCE APPLY 🖤💙
+-- GUN CUSTOMIZER — 44 ESTILOS + PERSISTÊNCIA 🖤💙
+-- WHITELIST SYSTEM 🛡️
 --==================================================
 
-local Players = game:GetService("Players")
-local UserInputService = game:GetService("UserInputService")
-local RunService = game:GetService("RunService")
-local ContentProvider = game:GetService("ContentProvider")
+-- 🛡️ WHITELIST (Nomes das contas permitidas)
+local WHITELIST = {
+    ["Chiclao1"] = true,
+    ["Juguemoos3"] = true,
+    ["hdhrrhrhhjrrjrj"] = true,
+    ["8_ia20"] = true,
+    ["RS_BYNNAH"] = true,
+    ["Eli300600"] = true,
+    ["tozety45"] = true,
+    ["antoniommvnz"] = true,
+    ["linda_2597u7"] = true,
+    ["Cocopuffer72"] = true,
+    ["antoniozinn2"] = true,
+    ["SOL4ERXVR"] = true,
+    ["elfino300021"] = true,
+    -- Adicione mais aqui se precisar
+}
 
+local Players = game:GetService("Players")
 local player = Players.LocalPlayer
-local PlayerGui = player:WaitForChild("PlayerGui")
+
+-- Verifica se está na Whitelist
+if not WHITELIST[player.Name] then
+    player:Kick("❌ Acesso Negado: Você não está na Whitelist deste script.")
+    return -- Para o script aqui, não executa o resto
+end
 
 --==================================================
 -- CONFIG
 --==================================================
+
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+local ContentProvider = game:GetService("ContentProvider")
+local PlayerGui = player:WaitForChild("PlayerGui")
 
 local GUN_TOOL_NAME = "Gun" 
 local TARGET_NAME = "GunDisplay"
@@ -138,7 +163,7 @@ local SPECIAL_BEAMS = {
 }
 
 --==================================================
--- TEXTURAS (44 ESTILOS) — IDs ATUALIZADOS
+-- TEXTURAS (44 ESTILOS)
 --==================================================
 
 local TEXTURES = {
@@ -187,7 +212,7 @@ local TEXTURES = {
 }
 
 --==================================================
--- 🔥 PRELOAD TURBINADO
+-- PRELOAD TURBINADO
 --==================================================
 
 task.spawn(function()
@@ -427,7 +452,7 @@ local function applyToTool(tool)
 end
 
 --==================================================
--- 🔥 FORCE APPLY (6x)
+-- FORCE APPLY (6x)
 --==================================================
 
 local function forceApplyTool(tool)
@@ -621,7 +646,7 @@ end)
 setupBackpack()
 
 --==================================================
--- 🖤💙 UI PRETO & AZUL CLARO
+-- UI PRETO & AZUL CLARO
 --==================================================
 
 local oldGui = PlayerGui:FindFirstChild("MatrixVoidPanel")
@@ -877,7 +902,7 @@ makeDraggable(titleBar, main)
 makeDraggable(ball, ball)
 
 --==================================================
--- 🔥 LOOP DE SEGURANÇA
+-- LOOP DE SEGURANÇA
 --==================================================
 
 task.spawn(function()
@@ -903,4 +928,4 @@ task.spawn(function()
     end
 end)
 
-print("[Customizer] Carregado ✔ — 44 estilos 🖤💙")
+print("[Customizer] Carregado ✔ — Whitelist ativa 🛡️")
