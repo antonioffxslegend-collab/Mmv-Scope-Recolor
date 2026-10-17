@@ -1,6 +1,6 @@
 --==================================================
 -- ANTONMVTWIN • 28KXPEHH & KYWSAM
--- GUN CUSTOMIZER — 37 ESTILOS + PERSISTÊNCIA 🖤💙
+-- GUN CUSTOMIZER — 44 ESTILOS + PRELOAD + FORCE APPLY 🖤💙
 --==================================================
 
 local Players = game:GetService("Players")
@@ -26,7 +26,7 @@ local WHITE = Color3.fromRGB(255, 255, 255)
 -- 🐱 IMAGEM CHOCO CAT
 local CHOCO_IMG = "rbxthumb://type=Asset&id=118126832694865&w=150&h=150"
 
--- 🖤💙 CORES PRETO & AZUL CLARO
+-- 🖤💙 CORES
 local BK_BLACK       = Color3.fromRGB(15, 15, 20)
 local BK_BLACK_SOFT  = Color3.fromRGB(30, 30, 40)
 local BK_BLACK_DARK  = Color3.fromRGB(5, 5, 10)
@@ -43,7 +43,7 @@ local SHOT_NAMES = {
 }
 
 --==================================================
--- CORES (37 ESTILOS)
+-- CORES (44 ESTILOS)
 --==================================================
 
 local EFFECT_COLORS = {
@@ -55,7 +55,6 @@ local EFFECT_COLORS = {
     WhiteScope                   = Color3.fromRGB(255, 255, 255),
     GhostScope                   = Color3.fromRGB(255, 255, 255),
     LadyNoir                     = Color3.fromRGB(200, 30, 90),
-
     RainbowDashScope             = Color3.fromRGB(0, 200, 255),
     PomPomPurinScope             = Color3.fromRGB(255, 200, 120),
     MyMelodyScope                = Color3.fromRGB(255, 150, 200),
@@ -84,6 +83,13 @@ local EFFECT_COLORS = {
     RedVelvetScope               = Color3.fromRGB(200, 30, 60),
     SwagMusicScope               = Color3.fromRGB(150, 80, 220),
     FallScope                    = Color3.fromRGB(230, 130, 60),
+    PusheenScope                 = Color3.fromRGB(180, 170, 160),
+    PudinScope                   = Color3.fromRGB(255, 210, 130),
+    VectorFlourishScope          = Color3.fromRGB(120, 220, 100),
+    FrutigerAeroScopeV1          = Color3.fromRGB(80, 180, 220),
+    FrutigerAeroScopeV2          = Color3.fromRGB(130, 220, 180),
+    MoeKawaiiScope               = Color3.fromRGB(255, 160, 200),
+    PastelKawaiiScope            = Color3.fromRGB(255, 240, 180),
 }
 
 local GUN_BODY_COLORS = EFFECT_COLORS
@@ -124,10 +130,15 @@ local SPECIAL_BEAMS = {
         ColorSequenceKeypoint.new(0.66, Color3.fromRGB(255, 240, 130)),
         ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 105, 180)),
     }),
+    PastelKawaiiScope = ColorSequence.new({
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 245, 180)),
+        ColorSequenceKeypoint.new(0.5, Color3.fromRGB(180, 240, 190)),
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 245, 180)),
+    }),
 }
 
 --==================================================
--- TEXTURAS (37 ESTILOS)
+-- TEXTURAS (44 ESTILOS) — IDs ATUALIZADOS
 --==================================================
 
 local TEXTURES = {
@@ -139,15 +150,15 @@ local TEXTURES = {
     WhiteScope                   = "rbxassetid://87412774611144",
     LadyNoir                     = "rbxassetid://113455213965513",
     RainbowDashScope             = "rbxassetid://91036451391743",
-    PomPomPurinScope             = "rbxassetid://84422578206287",
-    MyMelodyScope                = "rbxassetid://118329311723372",
-    CinnamorollScope             = "rbxassetid://101299747701905",
+    PomPomPurinScope             = "rbxassetid://103585180315576",
+    MyMelodyScope                = "rbxassetid://83689518548676",
+    CinnamorollScope             = "rbxassetid://109331272063130",
     HallowHelloKittyScope        = "rbxassetid://87175911202111",
     FluttershyScope              = "rbxassetid://138078031195826",
     PinkPieScope                 = "rbxassetid://81233140778268",
     ShinobuScope                 = "rbxassetid://129716772920139",
-    KuromiScope                  = "rbxassetid://93572939459652",
-    ChocoCatScope                = "rbxassetid://85605877472599",
+    KuromiScope                  = "rbxassetid://139867139703027",
+    ChocoCatScope                = "rbxassetid://92566809803349",
     CatNoirCyanScope             = "rbxassetid://131180982037558",
     TwilightBiScope              = "rbxassetid://108862731291876",
     CreatorScope                 = "rbxassetid://112081510735998",
@@ -166,16 +177,35 @@ local TEXTURES = {
     RedVelvetScope               = "rbxassetid://91979423609344",
     SwagMusicScope               = "rbxassetid://97014644110065",
     FallScope                    = "rbxassetid://118826135119487",
+    PusheenScope                 = "rbxassetid://76905425230972",
+    PudinScope                   = "rbxassetid://107816958013843",
+    VectorFlourishScope          = "rbxassetid://89091163185390",
+    FrutigerAeroScopeV1          = "rbxassetid://109961326765377",
+    FrutigerAeroScopeV2          = "rbxassetid://89548347687314",
+    MoeKawaiiScope               = "rbxassetid://131107656713089",
+    PastelKawaiiScope            = "rbxassetid://121510582236866",
 }
 
 --==================================================
--- PRELOAD
+-- 🔥 PRELOAD TURBINADO
 --==================================================
 
 task.spawn(function()
     local ids = {}
-    for _, id in pairs(TEXTURES) do table.insert(ids, id) end
-    pcall(function() ContentProvider:PreloadAsync(ids) end)
+    for _, id in pairs(TEXTURES) do 
+        table.insert(ids, id) 
+    end
+    
+    for i = 1, #ids, 5 do
+        local bloco = {}
+        for j = i, math.min(i + 4, #ids) do
+            table.insert(bloco, ids[j])
+        end
+        pcall(function()
+            ContentProvider:PreloadAsync(bloco)
+        end)
+    end
+    
     print("[Customizer] Texturas pré-carregadas ✔")
 end)
 
@@ -239,6 +269,9 @@ local Styles = {
     "BlueCookieCremeScope", "PinkMintScope", "FiliaScope", "NapolitanScope",
     "AppleJackScope", "SummerAquaScope", "SweetPetalAppleBlossomScope",
     "ChocoFlakeCreamScope", "RedVelvetScope", "SwagMusicScope", "FallScope",
+    "PusheenScope", "PudinScope", "VectorFlourishScope",
+    "FrutigerAeroScopeV1", "FrutigerAeroScopeV2",
+    "MoeKawaiiScope", "PastelKawaiiScope",
 }
 
 local CURRENT_STYLE = "Normal"
@@ -393,19 +426,21 @@ local function applyToTool(tool)
     return count
 end
 
+--==================================================
+-- 🔥 FORCE APPLY (6x)
+--==================================================
+
 local function forceApplyTool(tool)
     if not customizerEnabled or CURRENT_STYLE == "Normal" then return end
     task.spawn(function()
         applyToTool(tool)
         task.wait(0.05); applyToTool(tool)
-        task.wait(0.25); applyToTool(tool)
+        task.wait(0.15); applyToTool(tool)
+        task.wait(0.35); applyToTool(tool)
         task.wait(0.7); applyToTool(tool)
+        task.wait(1.5); applyToTool(tool)
     end)
 end
-
---==================================================
--- SETUP TOOL
---==================================================
 
 local function setupTool(tool)
     if not tool:IsA("Tool") then return end
@@ -448,37 +483,6 @@ local function setupBackpack()
         if obj:IsA("Tool") then setupTool(obj) end
     end)
 end
-
---==================================================
--- 🔥 PERSISTÊNCIA AUTOMÁTICA (não perde cor ao morrer)
---==================================================
-
-if player.Character then setupCharacter(player.Character) end
-
-player.CharacterAdded:Connect(function(character)
-    hookedTools = {}
-    setupCharacter(character)
-
-    -- 🔥 Reaplica o estilo atual automaticamente após respawn
-    task.wait(0.5)
-    if customizerEnabled and CURRENT_STYLE ~= "Normal" then
-        applyCurrentStyleRef()
-    end
-end)
-
--- 🔥 Re-setup automático quando o backpack for recriado
-player.ChildAdded:Connect(function(child)
-    if child.Name == "Backpack" then
-        task.wait(0.3)
-        setupBackpack()
-        task.wait(0.2)
-        if customizerEnabled and CURRENT_STYLE ~= "Normal" then
-            applyCurrentStyleRef()
-        end
-    end
-end)
-
-setupBackpack()
 
 local function getNearestDisplay()
     local character = player.Character
@@ -541,7 +545,7 @@ workspace.DescendantAdded:Connect(function(object)
 end)
 
 --==================================================
--- APPLY FUNCTIONS (com referência pra persistência)
+-- APPLY FUNCTIONS
 --==================================================
 
 function applyCurrentStyleRef()
@@ -569,9 +573,11 @@ function applyCurrentStyleRef()
     end
 
     runApply()
-    task.wait(0.1); runApply()
-    task.wait(0.3); runApply()
-    task.wait(0.8); runApply()
+    task.wait(0.05); runApply()
+    task.wait(0.15); runApply()
+    task.wait(0.35); runApply()
+    task.wait(0.7); runApply()
+    task.wait(1.5); runApply()
 end
 
 local function applyCurrentStyle()
@@ -579,16 +585,43 @@ local function applyCurrentStyle()
         if status then status.Text = "Customizer desligado" end
         return 
     end
-
     applyCurrentStyleRef()
-
     if status then
         status.Text = CURRENT_STYLE .. " aplicado"
     end
 end
 
 --==================================================
--- 🖤💙 UI PRETO & AZUL CLARO 💙🖤
+-- PERSISTÊNCIA
+--==================================================
+
+if player.Character then setupCharacter(player.Character) end
+
+player.CharacterAdded:Connect(function(character)
+    hookedTools = {}
+    setupCharacter(character)
+
+    task.wait(0.5)
+    if customizerEnabled and CURRENT_STYLE ~= "Normal" then
+        applyCurrentStyleRef()
+    end
+end)
+
+player.ChildAdded:Connect(function(child)
+    if child.Name == "Backpack" then
+        task.wait(0.3)
+        setupBackpack()
+        task.wait(0.2)
+        if customizerEnabled and CURRENT_STYLE ~= "Normal" then
+            applyCurrentStyleRef()
+        end
+    end
+end)
+
+setupBackpack()
+
+--==================================================
+-- 🖤💙 UI PRETO & AZUL CLARO
 --==================================================
 
 local oldGui = PlayerGui:FindFirstChild("MatrixVoidPanel")
@@ -724,7 +757,7 @@ local rainbowButton = makeButton("QUICK STYLE: RAINBOWSCOPE", content)
 local label = Instance.new("TextLabel")
 label.Size = UDim2.new(1, 0, 0, 18)
 label.BackgroundTransparency = 1
-label.Text = "TEXTURES (37 estilos)"
+label.Text = "TEXTURES (44 estilos)"
 label.TextColor3 = BLUE_LIGHT
 label.TextSize = 11
 label.Font = Enum.Font.FredokaOne
@@ -844,11 +877,11 @@ makeDraggable(titleBar, main)
 makeDraggable(ball, ball)
 
 --==================================================
--- 🔥 LOOP DE SEGURANÇA (mantém cor sempre)
+-- 🔥 LOOP DE SEGURANÇA
 --==================================================
 
 task.spawn(function()
-    while task.wait(2) do
+    while task.wait(3) do
         if customizerEnabled and CURRENT_STYLE ~= "Normal" then
             local char = player.Character
             if char then
@@ -870,4 +903,4 @@ task.spawn(function()
     end
 end)
 
-print("[Customizer] Carregado ✔ — 37 estilos + persistência 🖤💙")
+print("[Customizer] Carregado ✔ — 44 estilos 🖤💙")
