@@ -1,38 +1,47 @@
-8--==================================================
+--==================================================
 -- ANTONMVTWIN • 28KXPEHH & KYWSAM
 -- GUN CUSTOMIZER — 44 ESTILOS + PERSISTÊNCIA 🖤💙
--- WHITELIST SYSTEM 🛡️
+-- WHITELIST ATIVA 🛡️
 --==================================================
 
--- 🛡️ WHITELIST (Nomes das contas permitidas)
-local WHITELIST = {
-    ["Chiclao1"] = true,
-    ["Juguemoos3"] = true,
-    ["8_ia20"] = true,
-    ["RS_BYNNAH"] = true,
-    ["Eli300600"] = true,
-    ["tozety45"] = true,
-    ["antoniommvnz"] = true,
-    ["linda_2597u7"] = true,
-    ["Cocopuffer72"] = true,
-    ["antoniozinn2"] = true,
-    ["SOL4ERXVR"] = true,
-    ["elfino300021"] = true,
-    ["Achusi78"] = true,
-    ["tozety45"] = true,
-    ["hi1235010"] = true,
-    ["Harts1234giles"] = true,
-    -- Adicione mais aqui se precisar
-}
-
+--==================================================
+-- WHITELIST SYSTEM 🛡️
+--==================================================
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 
--- Verifica se está na Whitelist
-if not WHITELIST[player.Name] then
-    player:Kick("❌ Acesso Negado: Você não está na Whitelist deste script.")
-    return -- Para o script aqui, não executa o resto
+-- Lista de nomes permitidos (sempre em minúsculo)
+local WHITELIST_NAMES = {
+    ["chiclao1"] = true,
+    ["juguemoos3"] = true,
+    ["hdhrrhrhhjrrjrj"] = true,
+    ["8_ia20"] = true,
+    ["rs_bynnah"] = true,
+    ["eli300600"] = true,
+    ["tozety45"] = true,
+    ["antoniommvnz"] = true,
+    ["linda_2597u7"] = true,
+    ["cocopuffer72"] = true,
+    ["antoniozinn2"] = true,
+    ["sol4erxvr"] = true,
+    ["elfino300021"] = true,
+    ["achusi78"] = true,
+    ["hi1235010"] = true,
+    ["harts1234giles"] = true,
+}
+
+local nomeDoJogador = string.lower(player.Name)
+
+if not WHITELIST_NAMES[nomeDoJogador] then
+    warn("========================================")
+    warn("[WHITELIST] ACESSO NEGADO!")
+    warn("Seu nome é: " .. nomeDoJogador)
+    warn("Você não está na lista. Adicione seu nome no script!")
+    warn("========================================")
+    return
 end
+
+print("[WHITELIST] Acesso Liberado para: " .. player.Name)
 
 --==================================================
 -- CONFIG
@@ -54,7 +63,7 @@ local WHITE = Color3.fromRGB(255, 255, 255)
 -- 🐱 IMAGEM CHOCO CAT
 local CHOCO_IMG = "rbxthumb://type=Asset&id=118126832694865&w=150&h=150"
 
--- 🖤💙 CORES
+-- 🖤💙 CORES DA UI
 local BK_BLACK       = Color3.fromRGB(15, 15, 20)
 local BK_BLACK_SOFT  = Color3.fromRGB(30, 30, 40)
 local BK_BLACK_DARK  = Color3.fromRGB(5, 5, 10)
@@ -166,7 +175,7 @@ local SPECIAL_BEAMS = {
 }
 
 --==================================================
--- TEXTURAS (44 ESTILOS)
+-- TEXTURAS (44 ESTILOS) — IDs ATUALIZADOS
 --==================================================
 
 local TEXTURES = {
@@ -649,7 +658,7 @@ end)
 setupBackpack()
 
 --==================================================
--- UI PRETO & AZUL CLARO
+-- 🖤💙 UI PRETO & AZUL CLARO
 --==================================================
 
 local oldGui = PlayerGui:FindFirstChild("MatrixVoidPanel")
