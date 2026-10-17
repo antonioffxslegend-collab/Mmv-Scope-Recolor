@@ -1,4 +1,4 @@
---==================================================
+8--==================================================
 -- ANTONMVTWIN • 28KXPEHH & KYWSAM
 -- GUN CUSTOMIZER — 44 ESTILOS + PERSISTÊNCIA 🖤💙
 -- WHITELIST SYSTEM 🛡️
@@ -8,7 +8,6 @@
 local WHITELIST = {
     ["Chiclao1"] = true,
     ["Juguemoos3"] = true,
-    ["hdhrrhrhhjrrjrj"] = true,
     ["8_ia20"] = true,
     ["RS_BYNNAH"] = true,
     ["Eli300600"] = true,
