@@ -18,6 +18,10 @@ local WHITELIST = {
     ["antoniozinn2"] = true,
     ["SOL4ERXVR"] = true,
     ["elfino300021"] = true,
+    ["Achusi78"] = true,
+    ["tozety45"] = true,
+    ["hi1235010"] = true,
+    ["Harts1234giles"] = true,
     -- Adicione mais aqui se precisar
 }
 
